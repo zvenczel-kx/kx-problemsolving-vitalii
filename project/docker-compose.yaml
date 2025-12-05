@@ -1,0 +1,64 @@
+services:
+  gateway:
+    build:
+      context: ./gateway
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - internal_net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9090/healthz"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+
+  storage1:
+    build:
+      context: ./storage
+      dockerfile: Dockerfile
+    environment:
+      - STORAGE_NAME=storage1
+    networks:
+      - internal_net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9999/healthz"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+
+  storage2:
+    build:
+      context: ./storage
+      dockerfile: Dockerfile
+    environment:
+      - STORAGE_NAME=storage2
+    networks:
+      - internal_net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9999/healthz"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+
+  storage3:
+    build:
+      context: ./storage
+      dockerfile: Dockerfile
+    environment:
+      - STORAGE_NAME=storage3
+    networks:
+      - internal_net
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9999/healthz"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 5s
+
+networks:
+  internal_net:
+    driver: bridge
