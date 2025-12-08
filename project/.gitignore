@@ -1,0 +1,60 @@
+# =======================
+# Go build files
+# =======================
+# Binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binaries
+*.test
+*.out
+
+# Output of the go coverage tool
+*.coverprofile
+
+# Go workspace & modules
+go.work
+go.work.sum
+vendor/
+
+# Build directories
+/bin/
+/pkg/
+
+# =======================
+# Docker / docker-compose
+# =======================
+# Environment files
+*.env
+
+# Compose overrides
+docker-compose.override.yml
+
+# Temporary files
+tmp/
+*.tmp
+
+# =======================
+# IDE / Editor
+# =======================
+# VSCode
+.vscode/
+
+# JetBrains GoLand
+.idea/
+
+# Vim swap files
+*.swp
+*.swo
+
+# =======================
+# System files
+# =======================
+# macOS
+.DS_Store
+
+# Logs
+*.log
